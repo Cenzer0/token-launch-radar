@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LaunchScope — token launch radar</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="sweep" aria-hidden="true"></span>
+    <div>
+      <h1>LaunchScope</h1>
+      <p class="tagline">Token launch radar: pre-token protocols ranked by implied value, each with a farm plan.</p>
+    </div>
+  </div>
+  <p class="asof" id="asof"></p>
+</header>
+<main id="app" aria-busy="true"></main>
+<footer class="foot">
+  <p><strong>The model.</strong> Implied value = TVL &times; 0.30 &times; momentum &times; maturity &times; breadth.
+  Momentum reads the 7-day TVL change through a saturating curve (clamped to &minus;50%..+150%), so one wild week cannot swamp the board.
+  Maturity rewards time run with no token, on a log-age curve peaking near 22 months. Breadth adds 4% per chain the TVL already sits on, up to nine chains.
+  A protocol joins the board only when the snapshot records no token for it and it is not a wrapped, staked or bridged product of one that already trades.
+  The board states what a token would be worth if the protocol's record stayed as it is; it does not predict whether or when a token is issued.</p>
+  <p class="src" id="src"></p>
+</footer>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
